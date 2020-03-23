@@ -10,7 +10,9 @@ namespace Theme;
 class Taxonomies {
 
 	protected $taxonomies = array(
-		// 'department',
+		'neighborhood',
+		'product_type',
+		'fulfillment_type'
 	);
 
 	public function __construct(){
@@ -32,22 +34,62 @@ class Taxonomies {
 	// Taxonomies //
 	////////////////
 
-	public function department(){
+	public function neighborhood(){
 
 		register_via_taxonomy_core(
 			[
-				'Department', // Singular Name
-				'Departments', // Plural Name
-				'department'
+				'Neighborhood',
+				'Neighborhoods',
+				'neighborhood'
 			],
 			[
-				'description' => 'This is a department made up of people',
-				'hierarchical' => true, // "true" for category-like interface, "false" for tag-link interface,
+				'description' => 'Part of town that a business is located in',
+				'hierarchical' => true,
 				'show_ui' => true,
-				'show_admin_column' => false,
+				'show_admin_column' => true,
 				'query_var' => true
 			],
-			['person'] // Object types (custom post types) to include
+			['business']
+		);
+
+	}
+
+	public function product_type(){
+
+		register_via_taxonomy_core(
+			[
+				'Product Type',
+				'Product Types',
+				'product_type'
+			],
+			[
+				'description' => 'The sort of goods are services the business sells',
+				'hierarchical' => true,
+				'show_ui' => true,
+				'show_admin_column' => true,
+				'query_var' => true
+			],
+			['business']
+		);
+
+	}
+
+	public function fulfillment_type(){
+
+		register_via_taxonomy_core(
+			[
+				'Fulfillment Type',
+				'Fulfillment Types',
+				'fulfillment_type'
+			],
+			[
+				'description' => 'How the business delivers products or services',
+				'hierarchical' => true,
+				'show_ui' => true,
+				'show_admin_column' => true,
+				'query_var' => true
+			],
+			['business']
 		);
 
 	}

@@ -25,6 +25,10 @@ $mobile-menu-zindex:      260;
 //
 //## Gray and brand colors for use across Bootstrap.
 
+$site-blue: #3683AA;
+$site-blue-light: #E0F1FA;
+$site-red: #EA4025;
+
 $gray-base:              #000 !default;
 $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
 $gray-dark:              lighten($gray-base, 20%) !default;   // #333
@@ -60,15 +64,18 @@ $link-hover-decoration: underline;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:  "spartan-mb", sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif;
 
-$font-size-base:          14px !default;
-$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-base:          16px;
+$font-size-small:         14px;
+$font-size-xsmall:        11px;
+$font-size-xxsmall:        9px;
+$font-size-large:         20px;
+$font-size-xlarge:        26px;
 
 $font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
 $font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px

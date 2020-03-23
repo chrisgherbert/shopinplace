@@ -5,3 +5,91 @@
  * 
  */
 
+/**
+ * Buttons
+ */
+
+.button {
+	background-color: $site-blue;
+	color: white;
+	font-weight: 700;
+	letter-spacing: -0.5px;
+	padding: 10px 20px;
+	&:hover, &:active, &:focus {
+		text-decoration: none;
+		color: white;
+	}
+}
+
+.button--ghost {
+	background-color: transparent;
+	border: 1px solid white;
+	&:hover, &:active, &:focus {
+		background-color: rgba(white, 0.2);
+	}
+}
+
+.button--xsmall {
+	font-size: $font-size-xxsmall;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	padding: 4px 8px;
+}
+
+/**
+ * Flash Notice
+ * Notice displayed at the top of the page
+ */
+
+.flash-notice {
+	background-color: $site-blue;
+	color: white;
+	text-align: center;
+	padding: $spacing/5;
+	line-height: 1.1;
+}
+
+.flash-notice__inner {
+	display: inline-flex;
+	align-items: center;
+}
+
+.flash-notice__text {
+	font-size: $font-size-small;
+	font-weight: 700;
+}
+
+/**
+ * Main Header
+ */
+
+.main-header {
+	display: flex;
+	padding: $spacing/2;
+}
+
+.main-header__left {
+	flex-shrink: 0;
+}
+
+.main-header__left {
+	flex-grow: 1;
+}
+
+.main-header__right {
+	flex-shrink: 0;
+}
+
+.main-header__link {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: $gray-light;
+}
+
+.main-header__subtitle {
+	margin-left: $spacing/2;
+	@include mq-small-max {
+		display: none;
+	}
+}

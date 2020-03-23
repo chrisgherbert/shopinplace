@@ -69,12 +69,12 @@ class SiteOptions {
 			'desc' => 'Required to display maps'
 		]);
 
-		$main_options->add_field( [
+		$main_options->add_field([
 			'name' => 'Public Email Address',
 			'desc' => 'Your organization\'s public email address',
 			'id'   => 'email',
 			'type' => 'text',
-		] );
+		]);
 
 		$main_options->add_field( [
 			'name' => 'Facebook Page URL',

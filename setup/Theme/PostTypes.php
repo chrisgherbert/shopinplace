@@ -8,7 +8,7 @@ namespace Theme;
 class PostTypes {
 
 	protected $types = array(
-		// 'article',
+		'business'
 	);
 
 	public function __construct(){
@@ -25,18 +25,17 @@ class PostTypes {
 	 * specifically in analytics software.  However, it also can complicate the development
 	 * process.  Proceed with caution.
 	 */
-	public function article(){
+	public function business(){
 
 		register_via_cpt_core(
 			[
-				'Article', // Singular Name
-				'Articles', // Plural Name
-				'article' // Post Type Slug
-			],
-			[
-				'menu_icon' => 'dashicons-admin-page', // Dashicon icon (Reference: https://developer.wordpress.org/resource/dashicons/)
+				'Business',
+				'Businesses',
+				'business'
+			]
+			,[
+				'menu_icon' => 'dashicons-store',
 				'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
-				'taxonomies' => ['category', 'post_tag'],
 				'has_archive' => true
 			]
 		);
