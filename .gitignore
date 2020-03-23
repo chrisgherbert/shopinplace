@@ -1,0 +1,10 @@
+# Compiled Assets
+/dist
+
+# Package Managers
+/vendor
+node_modules
+npm-debug.log
+
+# Other
+.DS_Store
