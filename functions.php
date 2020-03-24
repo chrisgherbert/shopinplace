@@ -39,10 +39,12 @@ new Theme\SiteOptions();
 new Theme\AdminCustomize();
 new Theme\Timber\TwigFilters();
 new Theme\Timber\Context();
+new Theme\Routes();
 new Theme\Hooks\Feeds();
 new Theme\Hooks\Archives();
 new Theme\Hooks\Ajax();
 new Theme\Hooks\YoutubeFeaturedImage();
+new Theme\Hooks\ContentUpdate();
 
 /////////////////////////
 // Basic Theme Options //

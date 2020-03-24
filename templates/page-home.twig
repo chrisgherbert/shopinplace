@@ -2,42 +2,104 @@
 
 {% block content %}
 
-	<div class="container-fluid">
+	<div class="home-hero" {% if post.home_hero_background_id %} style="background-image: url('{{ Image(post.home_hero_background_id).src|resize(1920,0) }}')" {% endif %}>
 
-		<div class="row">
+		<div class="container-fluid">
 
-			<div class="col-md-12">
+			<div class="home-hero__inner">
 
-				<article class="the-content">
+				<h2 class="big-heading">
+					Let’s help Chicago’s Small Businesses weather this crisis. These businesses are going to great lengths to help you while you find shelter at home with food, activities, and other things to help get through this.
+				</h2>
 
-					<h1>
-						{{ post.title }}
-					</h1>
+				<div class="section section--tight section--no-bottom">
 
-					{{ post.content }}
+					<div class="buttons">
 
-				</article>
+						<a href="#" class="button">
+							Find Businesses
+						</a>
 
-				{% if posts %}
+						<a href="#" class="button button--white">
+							Submit Your Business
+						</a>
 
-					<ol>
+					</div>
 
-						{% for post in posts %}
+				</div>
 
-							<li>
-								<a href="{{ post.link }}" title="{{ post.title }}">
-									<h3>{{ post.title }}</h3>
-								</a>
-								<p>
-									{{ post.get_preview(30) }}
-								</p>
-							</li>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="section">
+
+		<div class="container-fluid">
+
+			<div class="section section--tight section--no-top">
+				<h3 class="section-heading">
+					Support local businesses near you
+				</h3>
+			</div>
+
+			<div class="map-results">
+
+				<div class="map-results__left">
+
+					<div class="section section--tight section--no-top">
+
+						<form action="/business-search" method="get" class="business-search business-search--compact">
+
+							<div class="search-submit-combo">
+
+								<input type="search" name="address" class="search-submit-combo__search" placeholder="Full Address or ZIP Code">
+
+								<input type="submit" class="button search-submit-combo__submit" value="Search">
+
+							</div>
+
+						</form>
+
+					</div>
+
+					<div class="business-teases-vertical">
+
+						{% for business in businesses %}
+
+							<a href="{{ business.link }}" class="business-tease">
+
+								{% if business.terms('product_type') %}
+									<div class="business-tease__overline">
+										{{ business.terms('product_type')|join(', ') }}
+									</div>
+								{% endif %}
+
+								<h3 class="business-tease__title">
+									{{ business.title }}
+								</h3>
+
+								{% if business.street_address or business.city or business.state or business.zip_code %}
+									<div class="business-tease__underline">
+										<i class="fa fa-map-marker fa-lg"></i> &nbsp;
+										{{ business.street_address }}, {{ business.city }}, {{ business.state }} {{ business.zip_code }}
+									</div>
+								{% endif %}
+
+							</a>
 
 						{% endfor %}
 
-					</ol>
+					</div>
 
-				{% endif %}
+				</div>
+
+				<div class="map-results__right">
+
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23759.708037320495!2d-87.64305481716272!3d41.89364195621642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2cb4ec3e694b%3A0x3d6527f08c950e19!2s219%20W%20Erie%20St%2C%20Chicago%2C%20IL%2060654!5e0!3m2!1sen!2sus!4v1584992117543!5m2!1sen!2sus" width="600px" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+				</div>
 
 			</div>
 

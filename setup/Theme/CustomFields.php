@@ -17,8 +17,8 @@ class CustomFields {
 	 * @var array
 	 */
 	protected $boxes = [
-		// 'front',
-		// 'article',
+		'home_hero',
+		'business'
 	];
 
 	/**
@@ -43,6 +43,85 @@ class CustomFields {
 				add_action('cmb2_admin_init', [$this, $box]);
 			}
 		}
+	}
+
+	public function home_hero(){
+
+		$cmb2 = new_cmb2_box([
+			'id'=> 'home_hero',
+			'title' => 'Home Hero',
+			'object_types' => ['page'],
+			'show_on' => ['key' => 'front-page'],
+		]);
+
+		$cmb2->add_field([
+			'id' => 'home_hero_background',
+			'name' => 'Background Image',
+			'type' => 'file',
+			'options' => [
+				'url' => false
+			]
+		]);
+
+		$cmb2->add_field([
+			'id' => 'home_hero_background',
+			'name' => 'Background Image',
+			'type' => 'file',
+			'options' => [
+				'url' => false
+			]
+		]);
+
+	}
+
+	public function business(){
+
+		$cmb2 = new_cmb2_box([
+			'id' => 'business',
+			'title' => 'Business Lat/Lng',
+			'object_types' => ['business'],
+			'priority' => 'low'
+		]);
+
+		$cmb2->add_field([
+			'id' => 'lat',
+			'name' => 'Latitude',
+			'type' => 'text',
+			'desc' => 'This should be populated automatically on adding/updating a business record',
+			'save_field'  => false,
+			'attributes'  => array(
+				'readonly' => 'readonly',
+				'placeholder' => 'Autocompleted on providing address',
+				'disabled' => 'disabled',
+			),
+		]);
+
+		$cmb2->add_field([
+			'id' => 'lng',
+			'name' => 'Longitude',
+			'type' => 'text',
+			'desc' => 'This should be populated automatically on adding/updating a business record',
+			'save_field'  => false,
+			'attributes'  => array(
+				'readonly' => 'readonly',
+				'placeholder' => 'Autocompleted on providing address',
+				'disabled' => 'disabled',
+			),
+		]);
+
+		$cmb2->add_field([
+			'id' => 'location_type',
+			'name' => 'Location Type',
+			'type' => 'text',
+			'desc' => 'This should be populated automatically on adding/updating a business record',
+			'save_field'  => false,
+			'attributes'  => array(
+				'readonly' => 'readonly',
+				'placeholder' => 'Autocompleted on providing address',
+				'disabled' => 'disabled',
+			),
+		]);
+
 	}
 
 	public function front(){

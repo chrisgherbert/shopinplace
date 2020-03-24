@@ -6,8 +6,39 @@
  */
 
 /**
+ * Headings
+ */
+
+.big-heading {
+	font-size: $font-size-xlarge;
+	font-weight: 900;
+	margin-top: 0;
+	&:before {
+		content: '';
+		display: block;
+		width: 175px;
+		border-top: 6px solid $text-color;
+		margin-bottom: $spacing/2;
+	}
+}
+
+.section-heading {
+	font-size: $font-size-large;
+	font-weight: 700;
+	border-bottom: 3px solid $text-color;
+	padding-bottom: $spacing/6;
+}
+
+/**
  * Buttons
  */
+
+.buttons {
+	margin-bottom: $spacing/4;
+	.button:not(:last-child){
+		margin-right: $spacing/4;
+	}
+}
 
 .button {
 	background-color: $site-blue;
@@ -15,9 +46,21 @@
 	font-weight: 700;
 	letter-spacing: -0.5px;
 	padding: 10px 20px;
+	border: none;
+	font-size: $font-size-small;
 	&:hover, &:active, &:focus {
 		text-decoration: none;
 		color: white;
+	}
+}
+
+.button--white {
+	border: 1px solid $site-blue;
+	background-color: white;
+	color: $site-blue;
+	&:active, &:focus, &:hover {
+		color: $site-blue;
+		background-color: $site-blue-light;
 	}
 }
 
@@ -34,6 +77,21 @@
 	text-transform: uppercase;
 	letter-spacing: 1.5px;
 	padding: 4px 8px;
+}
+
+/**
+ * Forms
+ */
+
+.search-submit-combo {
+	display: flex;
+	border: 1px solid $site-blue;
+}
+
+.search-submit-combo__search {
+	flex-grow: 1;
+	border: none;
+	padding: 5px 10px;
 }
 
 /**
@@ -93,3 +151,110 @@
 		display: none;
 	}
 }
+
+/**
+ * Main Menu
+ */
+
+.main-menu__list {
+	display: flex;
+}
+
+.main-menu__link {
+	display: inline-block;
+	font-weight: 700;
+	letter-spacing: -1px;
+	padding: 10px;
+}
+
+/**
+ * Business Teases
+ */
+
+.business-tease {
+	border: 1px solid rgba(black, 0.2);
+	display: block;
+	background-color: $site-gray-light;
+	margin-bottom: $spacing/4;
+	padding: $spacing/2 $spacing/3;
+	color: $text-color;
+	&:hover, &:active, &:focus {
+		color: $text-color;
+		text-decoration: none;
+		border-color: $site-blue;
+		transform: translate(-4px);
+		box-shadow: 0 3px 6px rgba(black, 0.1);
+	}
+}
+
+.business-tease__overline {
+	font-size: $font-size-xsmall;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.business-tease__title {
+	font-size: $font-size-base;
+	font-weight: 900;
+	letter-spacing: -0.5px;
+	margin: $spacing/4 0;
+	&:first-child{
+		margin-top: 0;
+	}
+}
+
+.business-tease__underline {
+	font-size: $font-size-xsmall;
+}
+
+/**
+ * Pages/Single
+ */
+
+.single-hero {
+	background-color: $site-blue-light;
+	padding: $spacing*1.5 0;
+}
+
+.single-title {
+	font-weight: 900;
+	text-align: center;
+	margin: 0;
+	font-size: $font-size-xxlarge;
+	letter-spacing: -1px;
+}
+
+/**
+ * Home Page
+ */
+
+.home-hero {
+	background-color: $site-blue-light;
+	background-size: cover;
+	background-position: right bottom;
+	padding: $spacing*2 0;
+}
+
+.home-hero__inner {
+	max-width: 630px;
+}
+
+/**
+ * Map Search Results
+ */
+
+.map-results {
+	display: flex;
+}
+
+.map-results__left {
+	padding: 10px;
+	height: 500px;
+	max-height: 90vh;
+	overflow-y: scroll;
+}
+
+.map-results__right {
+	padding-left: $spacing/1.5;
+}
+

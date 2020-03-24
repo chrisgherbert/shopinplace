@@ -28,6 +28,7 @@ $mobile-menu-zindex:      260;
 $site-blue: #3683AA;
 $site-blue-light: #E0F1FA;
 $site-red: #EA4025;
+$site-gray-light: #FAFAF9;
 
 $gray-base:              #000 !default;
 $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
@@ -50,10 +51,10 @@ $brand-danger:          #d9534f !default;
 //** Background color for `<body>`.
 $body-bg:               #fff;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark;
+$text-color:            lighten(black, 2%);
 
 //** Global textual link color.
-$link-color:            $brand-primary;
+$link-color:            $site-blue;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 15%);
 //** Link hover decoration.
@@ -76,6 +77,7 @@ $font-size-xsmall:        11px;
 $font-size-xxsmall:        9px;
 $font-size-large:         20px;
 $font-size-xlarge:        26px;
+$font-size-xxlarge:       35px;
 
 $font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
 $font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
