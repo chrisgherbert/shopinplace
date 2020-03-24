@@ -431,7 +431,7 @@
 }
 
 .map-results__right {
-	padding-left: $spacing/1.5;
+	padding-left: $spacing/2;
 	flex-grow: 1;
 	@include mq-xsmall-max {
 		display: none;
