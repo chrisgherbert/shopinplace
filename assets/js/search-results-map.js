@@ -31,6 +31,11 @@ function initSearchResultsMap(){
 
 		searchResultsData.results.forEach(function(item){
 
+			// If there are not coordinates for the item, don't try to map it
+			if (typeof item.lat === 'undefined' || typeof item.lng === 'undefined' || !item.lat || !item.lng) {
+				return;
+			}
+
 			// Create marker and place on the map
 			var marker = new google.maps.Marker({
 				map: map,
