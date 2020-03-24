@@ -34,6 +34,7 @@ require( get_template_directory() . '/setup/autoloaders.php');
 new Theme\Assets();
 new Theme\PostTypes();
 new Theme\CustomFields();
+new Theme\CustomFieldsACF();
 new Theme\Taxonomies();
 new Theme\SiteOptions();
 new Theme\AdminCustomize();
