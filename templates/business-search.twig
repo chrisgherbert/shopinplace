@@ -6,7 +6,11 @@
 
 			<div class="section section--tight section--no-top">
 				<h3 class="section-heading">
-					Support local businesses near you
+					{% if search_form_data.address %}
+						{{ search_data.businesses|length }} Found Near "{{ search_form_data.address }}"
+					{% else %}
+						Search for businesses near you!
+					{% endif %}
 				</h3>
 			</div>
 
@@ -51,30 +55,30 @@
 
 					{% if search_data.businesses %}
 
-						<div class="business-teases-vertical">
+						<div class="card-teases-vertical">
 
 							{% for item in search_data.businesses %}
 
-								<a href="{{ item.business.link }}" class="business-tease">
+								<a href="{{ item.business.link }}" class="card-tease">
 
 									{% if item.business.terms('product_type') %}
-										<div class="business-tease__overline">
+										<div class="card-tease__overline">
 											{{ item.business.terms('product_type')|join(', ') }}
 										</div>
 									{% endif %}
 
-									<h3 class="business-tease__title">
+									<h3 class="card-tease__title">
 										{{ item.business.title }}
 									</h3>
 
 									{% if item.business.street_address or item.business.city or item.business.state or item.business.zip_code %}
-										<div class="business-tease__underline">
+										<div class="card-tease__underline">
 											<i class="fa fa-map-marker fa-lg"></i> &nbsp;
 											{{ item.business.street_address }}, {{ item.business.city }}, {{ item.business.state }} {{ item.business.zip_code }}
 										</div>
 									{% endif %}
 
-									<div class="business-tease__distance">
+									<div class="card-tease__distance">
 										{{ item.distance|round(1) }} mi.
 									</div>
 
@@ -102,7 +106,7 @@
 
 				<div class="map-results__right">
 
-					<div class="map-results__map" id="search-results-map" style="height: 500px;"></div>
+					<div class="map-results__map" id="search-results-map"></div>
 
 				</div>
 

@@ -60,40 +60,24 @@
 
 				<div class="map-results__left">
 
-					<div class="section section--tight section--no-top">
-
-						<form action="/business-search" method="get" class="business-search business-search--compact">
-
-							<div class="search-submit-combo">
-
-								<input type="search" name="address" class="search-submit-combo__search" placeholder="Full Address or ZIP Code">
-
-								<input type="submit" class="button search-submit-combo__submit" value="Search">
-
-							</div>
-
-						</form>
-
-					</div>
-
-					<div class="business-teases-vertical">
+					<div class="card-teases-vertical">
 
 						{% for business in businesses %}
 
-							<a href="{{ business.link }}" class="business-tease">
+							<a href="{{ business.link }}" class="card-tease">
 
 								{% if business.terms('product_type') %}
-									<div class="business-tease__overline">
+									<div class="card-tease__overline">
 										{{ business.terms('product_type')|join(', ') }}
 									</div>
 								{% endif %}
 
-								<h3 class="business-tease__title">
+								<h3 class="card-tease__title">
 									{{ business.title }}
 								</h3>
 
 								{% if business.street_address or business.city or business.state or business.zip_code %}
-									<div class="business-tease__underline">
+									<div class="card-tease__underline">
 										<i class="fa fa-map-marker fa-lg"></i> &nbsp;
 										{{ business.street_address }}, {{ business.city }}, {{ business.state }} {{ business.zip_code }}
 									</div>

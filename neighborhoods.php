@@ -8,7 +8,7 @@ $context['neighborhoods'] = Timber::get_terms(
 	[
 		'taxonomy'  => 'neighborhood',
 		'hide_empty' => true,
-		'number' => -1
+		'number' => 100
 	]
 );
 

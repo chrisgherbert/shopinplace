@@ -1,1 +1,33 @@
 {% extends 'page.twig' %}
+
+{% block single_body %}
+
+	<div class="container-fluid">
+
+		<div class="section">
+
+			<div class="card-teases-grid">
+
+				{% for neighborhood in neighborhoods %}
+
+					<a href="{{ neighborhood.link }}" class="card-tease text-center">
+
+						<div class="card-tease__overline">
+							{{ neighborhood.posts(-1, 'business')|length }} Local Businesses
+						</div>
+
+						<h3 class="card-tease__title card-tease__title--large">
+							{{ neighborhood.name }}
+						</h3>
+
+					</a>
+
+				{% endfor %}
+
+			</div>
+
+		</div>
+
+	</div>
+
+{% endblock %}

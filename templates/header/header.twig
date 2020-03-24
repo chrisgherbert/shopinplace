@@ -30,11 +30,11 @@
 
 	<div class="main-header__middle">
 
-		<nav class="main-menu hidden-xs" role="navigation">
+		<nav class="main-menu" role="navigation">
 			<ul class="main-menu__list">
 
 				{% for item in main_menu.items %}
-					<li class="main-menu__item {{ item.classes|join(' ') }}">
+					<li class="hidden-xs main-menu__item {{ item.classes|join(' ') }}">
 						<a class="main-menu__link" href="{{ item.url }}">
 							{{ item.title }}
 						</a>

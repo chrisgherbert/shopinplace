@@ -27,12 +27,25 @@
 
 		{% endif %}
 
-		<form class="mobile-menu__search" method="GET" action="{{ site.url }}">
-			<div class="form-group">
-				<input class="form-control mobile-menu__search-input" type="text" name="s" placeholder="Search">
+		<div class="section section--tight section--no-bottom">
+
+			<div class="section section--xtight section--no-top">
+				<small>Find local businesses near you:</small>
 			</div>
-			<button class="sr-only" type="submit">Search</button>
-		</form>
+
+			<form action="/business-search" method="get" class="business-search business-search--compact">
+
+				<div class="search-submit-combo search-submit-combo--small">
+
+					<input type="search" name="address" class="search-submit-combo__search" placeholder="Address or ZIP">
+
+					<input type="submit" class="button search-submit-combo__submit" value="Search">
+
+				</div>
+
+			</form>
+
+		</div>
 
 	</nav>
 

@@ -41,6 +41,10 @@
 
 .section--all-around {
 	padding: $spacing;
+	@include mq-xsmall-max {
+		padding-left: $spacing/2;
+		padding-right: $spacing/2;
+	}
 }
 
 /**

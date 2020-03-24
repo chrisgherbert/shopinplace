@@ -1,0 +1,65 @@
+{% extends 'single.twig' %}
+
+{% block single_overline %}
+
+	<div class="single-overline">
+		Neighboorhood Businesses
+	</div>
+
+{% endblock %}
+
+{% block single_body %}
+
+	<div class="section section--tight section--no-top">
+
+		<div class="map-results__map" id="search-results-map" style="height: 400px"></div>
+
+	</div>
+
+	<div class="section section--tight">
+
+		<div class="container-fluid">
+
+			<div class="section section--tight section--no-top">
+				<h3 class="section-heading">
+					Support these local {{ page_title }} businesses!
+				</h3>
+			</div>
+
+			<div class="card-teases-grid">
+
+				{% for business in businesses %}
+
+					<a href="{{ business.link }}" class="card-tease text-center">
+
+						{% if business.terms('product_type') %}
+							<div class="card-tease__overline">
+								{{ business.terms('product_type')|join(', ') }}
+							</div>
+						{% endif %}
+
+						<h3 class="card-tease__title card-tease__title--large">
+							{{ business.title }}
+						</h3>
+
+						<span class="card-tease__underline">
+							{{ business.summary }}
+						</span>
+
+					</a>
+
+				{% endfor %}
+
+			</div>
+
+		</div>
+
+	</div>
+
+{% endblock %}
+
+{% block extra_content_footer %}
+
+	<script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initSearchResultsMap" async defer></script>
+
+{% endblock %}
