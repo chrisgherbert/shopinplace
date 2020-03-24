@@ -8,9 +8,13 @@
 
 			<div class="container-fluid">
 
+				{% block single_overline %}{% endblock %}
+
 				<h1 class="single-title">
 					{{ post.title|default(page_title) }}
 				</h1>
+
+				{% block single_subtitle %}{% endblock %}
 
 			</div>
 
@@ -22,21 +26,25 @@
 
 	{% block single_body %}
 
-		<div class="container-fluid">
+		<div class="section">
 
-			<div class="row">
+			<div class="container-fluid">
 
-				<div class="col-lg-8 col-lg-offset-2">
+				<div class="row">
 
-					{% block before_single_content %}{% endblock %}
+					<div class="col-lg-6 col-md-8 col-lg-offset-3 col-md-offset-2">
 
-					{% block single_content %}
-						<div class="the-content">
-							{{ post.content }}
-						</div>
-					{% endblock %}
+						{% block before_single_content %}{% endblock %}
 
-					{% block after_single_content %}{% endblock %}
+						{% block single_content %}
+							<div class="the-content">
+								{{ post.content }}
+							</div>
+						{% endblock %}
+
+						{% block after_single_content %}{% endblock %}
+
+					</div>
 
 				</div>
 

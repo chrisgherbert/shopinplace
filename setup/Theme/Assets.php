@@ -23,6 +23,9 @@ class Assets {
 		]);
 		wp_enqueue_script('main');
 
+		// Search results map script
+		wp_register_script('search-results-map', get_template_directory_uri() . '/assets/js/search-results-map.js', false, '', true);
+
 	}
 
 	public function enqueue_stylesheets(){

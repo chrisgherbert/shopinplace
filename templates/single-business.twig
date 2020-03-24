@@ -1,0 +1,123 @@
+{% extends "single.twig" %}
+
+{% block single_overline %}
+	{% if post.terms('neighborhood') %}
+		<div class="single-overline">
+			{{ post.terms('neighborhood')|join(', ') }}
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block single_subtitle %}
+	{% if post.street_address or post.city or post.state or post.zip_code %}
+		<div class="single-subtitle">
+			<i class="fa fa-map-marker fa-lg"></i>&nbsp; {{ post.street_address }} {{ post.city }}, {{ post.state }} {{ post.zip_code }}
+			<small><a href="https://www.google.com/maps/dir/{{ (post.street_address ~ ' ' ~ post.city ~ ' ' ~ post.state ~ ' ' ~ post.zip_code)|url_encode }}">(Directions)</a></small>
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block before_single_content %}
+	{% if post.summary %}
+		<div class="single-intro">
+			{{ post.summary }}
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block after_single_content %}
+
+	<div class="section section--tight section--no-bottom">
+
+		<div class="single-meta-list">
+
+			{% if post.terms('product_type') %}
+
+				<div class="single-meta-list__item">
+
+					<div class="single-meta-list__key">
+						Product Types
+					</div>
+
+					<div class="single-meta-list__value">
+						{{ post.terms('product_type')|join(', ') }}
+					</div>
+
+				</div>
+
+			{% endif %}
+
+			{% if post.terms('product_type') %}
+
+				<div class="single-meta-list__item">
+
+					<div class="single-meta-list__key">
+						Fulfillment Options
+					</div>
+
+					<div class="single-meta-list__value">
+						{{ post.terms('fulfillment_type')|join(', ') }}
+					</div>
+
+				</div>
+
+			{% endif %}
+
+			{% if post.website %}
+
+				<div class="single-meta-list__item">
+
+					<div class="single-meta-list__key">
+						Website
+					</div>
+
+					<div class="single-meta-list__value">
+						<a href="{{ post.website }}">
+							{{ post.website }}
+						</a>
+					</div>
+
+				</div>
+
+			{% endif %}
+
+			{% if post.phone_number %}
+
+				<div class="single-meta-list__item">
+
+					<div class="single-meta-list__key">
+						Phone Number
+					</div>
+
+					<div class="single-meta-list__value">
+						{{ post.phone_number }}
+					</div>
+
+				</div>
+
+			{% endif %}
+
+			{% if post.yelp_profile_url %}
+
+				<div class="single-meta-list__item">
+
+					<div class="single-meta-list__key">
+						Yelp Profile
+					</div>
+
+					<div class="single-meta-list__value">
+						<a href="{{ post.yelp_profile_url }}">
+							{{ post.yelp_profile_url }}
+						</a>
+					</div>
+
+				</div>
+
+			{% endif %}
+
+		</div>
+
+	</div>
+
+
+{% endblock %}

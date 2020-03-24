@@ -13,7 +13,7 @@ class ContentUpdate {
 
 	public function geocode_business_address($meta_id, $post_id, $meta_key, $meta_value){
 
-		if ($meta_key === 'street_address' && get_post_type($post_id) === 'business'){
+		if ( in_array($meta_key, ['street_address', 'city', 'state', 'zip_code']) && get_post_type($post_id) === 'business'){
 
 			// Get all address components
 			$address = $meta_value;

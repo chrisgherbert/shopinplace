@@ -1,0 +1,119 @@
+{% extends 'page.twig' %}
+
+{% block single_body %}
+
+	<div class="section section--all-around">
+
+			<div class="section section--tight section--no-top">
+				<h3 class="section-heading">
+					Support local businesses near you
+				</h3>
+			</div>
+
+			<div class="map-results">
+
+				<div class="map-results__left">
+
+					<div class="section section--tight section--no-top">
+
+						<form action="/business-search" method="get" class="business-search business-search--compact">
+
+							<div class="search-submit-combo">
+
+								<input type="search" name="address" class="search-submit-combo__search" placeholder="Full Address or ZIP Code" value="{{ search_form_data.address }}">
+
+								<input type="submit" class="button search-submit-combo__submit" value="Search">
+
+							</div>
+
+							{% set distance_values = [2, 5, 10, 20] %}
+
+							<div class="section section--xtight">
+
+								<select name="distance" class="small-select">
+									{% for value in distance_values %}
+										<option value="{{ value }}" {% if value == search_form_data.distance %} selected {% endif %} default>
+											Within {{ value }} 
+											{% if value > 1 %}
+												Miles
+											{% else %}
+												Mile
+											{% endif %}
+										</option>
+									{% endfor %}
+								</select>
+
+							</div>
+
+						</form>
+
+					</div>
+
+					{% if search_data.businesses %}
+
+						<div class="business-teases-vertical">
+
+							{% for item in search_data.businesses %}
+
+								<a href="{{ item.business.link }}" class="business-tease">
+
+									{% if item.business.terms('product_type') %}
+										<div class="business-tease__overline">
+											{{ item.business.terms('product_type')|join(', ') }}
+										</div>
+									{% endif %}
+
+									<h3 class="business-tease__title">
+										{{ item.business.title }}
+									</h3>
+
+									{% if item.business.street_address or item.business.city or item.business.state or item.business.zip_code %}
+										<div class="business-tease__underline">
+											<i class="fa fa-map-marker fa-lg"></i> &nbsp;
+											{{ item.business.street_address }}, {{ item.business.city }}, {{ item.business.state }} {{ item.business.zip_code }}
+										</div>
+									{% endif %}
+
+									<div class="business-tease__distance">
+										{{ item.distance|round(1) }} mi.
+									</div>
+
+								</a>
+
+							{% endfor %}
+
+						</div>
+
+					{% elseif search_form_data.address %}
+
+						<div class="alert alert-danger">
+							No businesses found
+						</div>
+
+					{% else %}
+
+						<div class="alert alert-info">
+							<i class="fa fa-search"></i> &nbsp; Type address above. 
+						</div>
+
+					{% endif %}
+
+				</div>
+
+				<div class="map-results__right">
+
+					<div class="map-results__map" id="search-results-map" style="height: 500px;"></div>
+
+				</div>
+
+			</div>
+
+	</div>
+
+{% endblock %}
+
+{% block extra_content_footer %}
+
+	<script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initSearchResultsMap" async defer></script>
+
+{% endblock %}

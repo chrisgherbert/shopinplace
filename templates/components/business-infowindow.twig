@@ -1,0 +1,13 @@
+<div class="business-infowindow">
+
+	<div class="business-infowindow__overline">
+		{{ business.terms('business_type')|join(', ') }}
+	</div>
+
+	<h4 class="business-infowindow__title">
+		<a href="{{ business.link }}">
+			{{ business.title }}
+		</a>
+	</h4>
+
+</div>
