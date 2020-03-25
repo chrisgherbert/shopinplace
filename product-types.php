@@ -2,15 +2,14 @@
 
 $context = Timber::get_context();
 
-$context['page_title'] = 'Neighborhoods';
+$context['page_title'] = 'Product Types';
 
 $context['terms'] = Timber::get_terms(
 	[
-		'taxonomy'  => 'neighborhood',
+		'taxonomy'  => 'product_type',
 		'hide_empty' => true,
 		'number' => 100
 	]
 );
-
 
 Timber::render('term-list.twig', $context);

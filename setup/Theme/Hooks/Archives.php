@@ -20,7 +20,8 @@ class Archives {
 
 		// Add post types to this array to include them in the standard RSS feed
 		$post_types = [
-			'post'
+			'post',
+			'business'
 		];
 
 		if ( $query->is_main_query() && $query->is_archive() && !$query->is_post_type_archive() && empty( $query->query_vars['suppress_filters'] ) ) {

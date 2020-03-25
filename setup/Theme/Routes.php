@@ -18,6 +18,12 @@ class Routes {
 
 		});
 
+		\Routes::map('product-types', function($params){
+
+			\Routes::load('product-types.php', null, null, 200);
+
+		});
+
 	}
 
 }

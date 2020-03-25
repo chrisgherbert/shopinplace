@@ -30,6 +30,8 @@ if ( is_day() ) {
 } else if ( is_category() ) {
 	$context['page_title'] = single_cat_title( '', false );
 	array_unshift( $templates, 'archive-' . get_query_var( 'cat' ) . '.twig' );
+} else if ( is_tax() ) {
+	$context['page_title'] = single_term_title( '', false );
 } else if ( is_post_type_archive() ) {
 	$context['page_title'] = post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );

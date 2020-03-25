@@ -1,1 +1,42 @@
 {% extends 'page.twig' %}
+
+{% block single_body %}
+
+	<div class="section">
+
+		<div class="container-fluid">
+
+			<div class="card-teases-grid">
+
+				{% for post in posts %}
+
+					<a href="{{ post.link }}" class="card-tease text-center">
+
+						{% if post.terms('product_type') %}
+							<div class="card-tease__overline">
+								{{ post.terms('product_type')|join(', ') }}
+							</div>
+						{% endif %}
+
+						<h3 class="card-tease__title card-tease__title--large">
+							{{ post.title }}
+						</h3>
+
+						{% if post.street_address or post.city or post.state or post.zip_code %}
+							<div class="card-tease__underline">
+								<i class="fa fa-map-marker fa-lg"></i> &nbsp;
+								{{ post.street_address }}, {{ post.city }}, {{ post.state }} {{ post.zip_code }}
+							</div>
+						{% endif %}
+
+					</a>
+
+				{% endfor %}
+
+			</div>
+
+		</div>
+
+	</div>
+
+{% endblock %}

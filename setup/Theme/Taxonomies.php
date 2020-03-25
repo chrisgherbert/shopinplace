@@ -58,8 +58,8 @@ class Taxonomies {
 
 		register_via_taxonomy_core(
 			[
-				'Product Type',
-				'Product Types',
+				'Business Type',
+				'Business Types',
 				'product_type'
 			],
 			[
