@@ -8,9 +8,11 @@
 
 			<div class="home-hero__inner">
 
-				<h2 class="big-heading">
-					Let’s help Chicago’s Small Businesses weather this crisis. These businesses are going to great lengths to help you while you find shelter at home with food, activities, and other things to help get through this.
-				</h2>
+				{% if post.home_hero_content %}
+					<h2 class="big-heading">
+						{{ post.home_hero_content }}
+					</h2>
+				{% endif %}
 
 				<div class="section section--tight section--no-bottom">
 

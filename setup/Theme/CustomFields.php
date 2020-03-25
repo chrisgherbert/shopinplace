@@ -72,6 +72,12 @@ class CustomFields {
 			]
 		]);
 
+		$cmb2->add_field([
+			'id' => 'home_hero_content',
+			'name' => 'Hero text',
+			'type' => 'textarea'
+		]);
+
 	}
 
 	public function business(){
