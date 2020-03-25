@@ -20,7 +20,7 @@
 {% block before_single_content %}
 	{% if post.summary %}
 		<div class="single-intro">
-			{{ post.summary }}
+			{{ post.summary|apply_filters('the_content') }}
 		</div>
 	{% endif %}
 {% endblock %}

@@ -363,8 +363,12 @@
 
 .single-intro {
 	font-size: $font-size-large;
-	margin-bottom: $line-height-computed*2;
-	color: $gray-light;
+	font-family: $font-family-serif;
+	font-style: italic;
+	margin-bottom: $line-height-computed;
+	padding-bottom: $line-height-computed;
+	border-bottom: 1px dotted rgba(black, 0.2);
+	color: $gray;
 }
 
 .single-meta-list {
