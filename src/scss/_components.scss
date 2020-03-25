@@ -422,15 +422,11 @@
 
 .map-results__left {
 	padding: 10px;
-	height: 600px;
-	max-height: 90vh;
-	overflow-y: scroll;
-	width: 350px;
-	@include mq-xsmall-max {
-		width: 100%;
-		overflow: visible;
-		max-height: auto;
-		height: auto;
+	@include mq-small-min {
+		height: 600px;
+		max-height: 90vh;
+		overflow-y: scroll;
+		width: 350px;
 	}
 }
 
