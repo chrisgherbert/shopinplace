@@ -29,7 +29,7 @@ $context['businesses'] = Timber::get_posts([
 			'terms' => get_queried_object()->term_id
 		]
 	]
-]);
+], 'Content\Business');
 
 $context['pagination'] = Timber::get_pagination();
 
