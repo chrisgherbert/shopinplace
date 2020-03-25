@@ -428,7 +428,7 @@
 	width: 350px;
 	@include mq-xsmall-max {
 		width: 100%;
-		overflow: auto;
+		overflow: visible;
 		max-height: auto;
 		height: auto;
 	}
