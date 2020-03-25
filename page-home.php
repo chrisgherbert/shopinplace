@@ -14,7 +14,7 @@ $context['businesses'] = Timber::get_posts([
 	'posts_per_page' => -1,
 	'order_by' => 'title',
 	'order' => 'ASC'
-]);
+], 'Content\Business');
 
 // Get Google Maps JS API key, to create the map on page
 $context['google_maps_api_key'] = get_option('site_options')['GOOGLE_MAPS_JS_KEY'] ?? false;
