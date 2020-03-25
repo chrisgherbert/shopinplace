@@ -2,7 +2,7 @@
 
 $context = Timber::get_context();
 
-$context['page_title'] = 'Product Types';
+$context['page_title'] = 'Business Types';
 
 $context['terms'] = Timber::get_terms(
 	[
