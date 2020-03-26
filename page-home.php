@@ -12,7 +12,7 @@ $context['post'] = $post;
 $context['businesses'] = Timber::get_posts([
 	'post_type' => 'business',
 	'posts_per_page' => -1,
-	'order_by' => 'title',
+	'orderby' => 'title',
 	'order' => 'ASC'
 ], 'Content\Business');
 
